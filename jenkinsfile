@@ -7,7 +7,7 @@ pipeline
      {
      steps
       {
-       git 'https://github.com/intelliqi/jenkins.git'
+       git 'https://github.com/intelliqi/maven.git'
       }
      }
      stage('cont build')
