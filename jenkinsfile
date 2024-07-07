@@ -3,40 +3,18 @@ pipeline
     agent any
     stages
     {
-    stage('cont down m')
+    stage('cont down l')
      {
      steps
       {
        git 'https://github.com/intelliqi/jenkins.git'
       }
      }
-     stage('cont build m')
+     stage('cont build l')
      {
       steps
      {
        sh 'mvn package'
-     }
-     }
-     stage('cont deploy m')
-     {
-      steps
-      {
-       deploy adapters: [tomcat9(credentialsId: '446b3b2b-69ca-461d-8b1a-06e9d8e6f200', path: '', url: 'http://172.31.25.75:8080')], contextPath: 'testapp', war: '**/*.war'
-      }
-      }
-     stage('cont test m')
-      {
-      steps
-     {
-       git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
-       sh 'java -jar "/var/lib/jenkins/workspace/scripted pipeline 1"/testing.jar'
-     }
-     }
-     stage('cont delivery m')
-     {
-     steps
-     {
-     deploy adapters: [tomcat9(credentialsId: '446b3b2b-69ca-461d-8b1a-06e9d8e6f200', path: '', url: 'http://172.31.35.159:8080')], contextPath: 'prodapp', war: '**/*.war'
      }
      }
     }
